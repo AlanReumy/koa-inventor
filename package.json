@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": "./bin/index.js",
-  "homepage": "",
+  "homepage": "https://github.com/b1t010/koa-inventor",
   "scripts": {},
   "keywords": [
     "quick invent a koa server"
