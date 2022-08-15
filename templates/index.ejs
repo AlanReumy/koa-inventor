@@ -1,0 +1,21 @@
+import Koa from 'koa'
+<% if (middleware.includes('koa-router')) { %>
+  import Router from 'koa-router'
+  <% } %>
+    <% if (middleware.includes('koa-static')) { %>
+      import serve from 'koa-static'
+      <% } %>
+        const app = new Koa()
+        <% if (middleware.includes('koa-static')) { %>
+          app.use(serve('./static'));
+          <% } %>
+            <% if (middleware.includes('koa-router')) { %>
+              const router = new Router();
+
+              router.get('/', (ctx, next) => {
+              ctx.body = "hello easy koa"
+              });
+              <% } %>
+                app.listen(<%= (port) %>,() => {
+                  console.log('server is running on <%= (port) %> ');
+                    })
