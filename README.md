@@ -1,6 +1,6 @@
 # koa-inventor
 
-> 交互式快速创建 `Koa` 项目的 `CLI` 工具
+> 交互式快速创建 Koa 项目的 CLI 工具
 
 
 # Feature
