@@ -1,21 +1,26 @@
 import Koa from 'koa'
-<% if (middleware.includes('koa-router')) { %>
-  import Router from 'koa-router'
-  <% } %>
-    <% if (middleware.includes('koa-static')) { %>
-      import serve from 'koa-static'
-      <% } %>
-        const app = new Koa()
-        <% if (middleware.includes('koa-static')) { %>
-          app.use(serve('./static'));
-          <% } %>
-            <% if (middleware.includes('koa-router')) { %>
-              const router = new Router();
 
-              router.get('/', (ctx, next) => {
-              ctx.body = "hello easy koa"
-              });
+<% if (middleware.includes('koa-static')) { %>
+  import serve from 'koa-static'
+  <% } %>
+    <% if (middleware.includes('koa-bodyparser')) { %>
+      import bodyParser from 'koa-bodyparser'
+      <% } %>
+        <% if (middleware.includes('koa-router')) { %>
+          import Router from 'koa-router'
+          import useRoutes from './router/index.js'
+          <% } %>
+            const app = new Koa()
+            <% if (middleware.includes('koa-static')) { %>
+              app.use(serve('./static'));
               <% } %>
-                app.listen(<%= (port) %>,() => {
-                  console.log('server is running on <%= (port) %> ');
-                    })
+                <% if (middleware.includes('koa-bodyparser')) { %>
+                  app.use(bodyParser())
+                  <% } %>
+                    <% if (middleware.includes('koa-router')) { %>
+                      app.useRoutes = useRoutes
+                      app.useRoutes()
+                      <% } %>
+                        app.listen(<%= (port) %>,() => {
+                          console.log('server is running on <%= (port) %> ');
+                            })

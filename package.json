@@ -1,19 +1,23 @@
 {
   "name": "koa-inventor",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "a cli for create koa project",
   "main": "index.js",
   "type": "module",
   "bin": "./bin/index.js",
   "homepage": "https://github.com/b1t010/koa-inventor",
-  "scripts": {},
+  "repository": "github:b1t010/koa-invendor",
+  "scripts": {
+    "start": "node ./bin/index.js"
+  },
   "files": [
     "bin",
     "package.json",
     "templates"
   ],
   "keywords": [
-    "quick invent a koa server"
+    "cli",
+    "koa"
   ],
   "author": "b1t010",
   "license": "MIT",

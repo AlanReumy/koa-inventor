@@ -1,0 +1,16 @@
+import fs from "fs";
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const useRoutes = function () {
+const __dirname = fileURLToPath(import.meta.url)
+fs.readdirSync(path.resolve(__dirname, '../')).forEach((file) => {
+if (file === "index.js") return;
+import(`./${file}`).then((router) => {
+this.use(router.default.routes());
+this.use(router.default.allowedMethods());
+});
+});
+};
+
+export default useRoutes;

@@ -1,0 +1,9 @@
+import Router from 'koa-router'
+
+const helloRouter = new Router({ prefix: '/' })
+
+helloRouter.get('/', async(ctx, next) => {
+ctx.body = "hello Router"
+})
+
+export default helloRouter

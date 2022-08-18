@@ -19,5 +19,8 @@
       <% if (middleware.includes('koa-static')) { %>
         ,"koa-static": "^5.0.0"
         <% } %>
-          }
-          }
+          <% if (middleware.includes('koa-bodyparser')) { %>
+            ,"koa-bodyparser": "^4.3.0"
+            <% } %>
+              }
+              }
