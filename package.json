@@ -1,12 +1,12 @@
 {
   "name": "koa-inventor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a cli for create koa project",
   "main": "index.js",
   "type": "module",
   "bin": "./bin/index.js",
   "homepage": "https://github.com/b1t010/koa-inventor",
-  "repository": "github:b1t010/koa-invendor",
+  "repository": "github:b1t010/koa-inventor",
   "scripts": {
     "start": "node ./bin/index.js"
   },
