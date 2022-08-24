@@ -1,4 +1,4 @@
-import { middlewareConfig } from "../config/middleware"
+import { middlewareConfig } from "../config/middleware.js"
 
 export type Config = {
     projectName: string

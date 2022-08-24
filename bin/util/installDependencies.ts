@@ -1,5 +1,5 @@
 import { execa } from 'execa'
-import { Config } from './type/config'
+import { Config } from '../type/config'
 
 export async function installDependencies(config: Config) {
   const { packageManager, rootPath } = config

@@ -1,23 +1,23 @@
 import fs from 'fs'
-import { Config } from "../type/config"
-import { createHelloRouterTemplate, createRouterIndexTemplate } from "./createTemplate"
+import { Config } from "../type/config.js"
+import { createHelloRouterTemplate, createRouterIndexTemplate } from './createTemplate.js'
 
 export function createEditorConfig(config: Config) {
     const editorconfig = `
-    root = true
-    [*]
-    indent_style = space
-    indent_size = 2
-    end_of_line = lf
-    charset = utf-8
-    trim_trailing_whitespace = true
-    insert_final_newline = true
+root = true
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
 
-    [*.md]
-    trim_trailing_whitespace = false
+[*.md]
+trim_trailing_whitespace = false
 
-    [Makefile]
-    indent_style = tab
+[Makefile]
+indent_style = tab
   `
     fs.writeFileSync(`./${config.rootPath}/.editorconfig`, editorconfig)
 }
