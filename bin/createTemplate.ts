@@ -33,3 +33,23 @@ export function createHelloRouter(config: Config) {
   const code = ejs.render(template.toString(), config)
   return prettier.format(code, { parser: 'babel' })
 }
+
+export function createEditorConfig(config: Config) {
+  const editorconfig = `
+    root = true
+    [*]
+    indent_style = space
+    indent_size = 2
+    end_of_line = lf
+    charset = utf-8
+    trim_trailing_whitespace = true
+    insert_final_newline = true
+
+    [*.md]
+    trim_trailing_whitespace = false
+
+    [Makefile]
+    indent_style = tab
+  `
+  fs.writeFileSync(`./${config.rootPath}/.editorconfig`, editorconfig)
+}

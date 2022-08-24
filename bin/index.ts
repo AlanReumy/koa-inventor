@@ -2,7 +2,7 @@
 import fs from 'fs'
 import chalk from 'chalk'
 import { createConfig } from './config/index.js'
-import { createBootstrapTemplate, createHelloRouter, createPackageJsonTemplate, createRouterIndexTemplate } from './createTemplate.js'
+import { createBootstrapTemplate, createEditorConfig, createHelloRouter, createPackageJsonTemplate, createRouterIndexTemplate } from './createTemplate.js'
 import { installDependencies } from './installDependencies.js'
 
 const config = await createConfig()
@@ -13,7 +13,9 @@ const { middleware } = config
 // 1.创建文件夹
 fs.mkdirSync(rootPath)
 
-if (middleware.includes(`koa-static`)) {
+createEditorConfig(config)
+
+if (middleware.includes('koa-static')) {
   fs.mkdirSync(`./${rootPath}/static`)
 }
 
