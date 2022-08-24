@@ -5,7 +5,6 @@ import { createConfig } from './config/index.js'
 import { createBootstrapTemplate, createHelloRouter, createPackageJsonTemplate, createRouterIndexTemplate } from './createTemplate.js'
 import { installDependencies } from './installDependencies.js'
 
-
 const config = await createConfig()
 const rootPath = `./${config.projectName}`
 config.rootPath = rootPath
