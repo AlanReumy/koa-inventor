@@ -1,14 +1,21 @@
 # koa-inventor
 
-> 交互式快速创建 Koa 项目的 CLI 工具
+> Interactive quick CLI tool for creating `Koa` projects 🚀🚀, quick develop without configuration
+
+## document
+
+[中文文档](./README_CH.md)
+
+[English document](./README.md) 👇
 
 ## Feature
-1. 交互式创建 `Koa` 项目
-2. 支持可配置的中间件:
+
+1. Create the `Koa` project interactively
+2. Support for configurable middleware
    - koa-static
    - koa-router
    - koa-bodyparser
-3. 支持选择包管理工具（npm、yarn、pnpm）
+3. Support to select package management tools (npm, yarn, pnpm)
 
 ## Install
 
@@ -18,10 +25,18 @@ npm install koa-inventor -g
 
 ## Usage
 
+- create project
+
 ```shell
-koa-inventor
+koa-inventor create
+```
+
+- help
+
+```shell
+koa-inventor -h
 ```
 
 ## Support
 
-如果本项目帮助到你的话，请点个star⭐给我，非常感谢！
+> If this project can help you, please click star ⭐ to me. Thank you very much!
