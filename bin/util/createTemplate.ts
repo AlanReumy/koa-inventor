@@ -34,3 +34,9 @@ export function createHelloRouterTemplate(config: Config) {
   return prettier.format(code, { parser: 'babel' })
 }
 
+export function createServiceTemplate(moduleName: string) {
+  const __dirname = fileURLToPath(import.meta.url)
+  const template = fs.readFileSync(path.resolve(__dirname, '../../../templates/module/service.ejs'))
+  const code = ejs.render(template.toString(), {moduleName})
+  return prettier.format(code, { parser: 'babel' })
+}

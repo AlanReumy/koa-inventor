@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
 import { create } from './command/create.js'
+import { generateModule } from './command/gm.js';
 
 const program = new Command();
 
@@ -14,5 +15,12 @@ program.command('create')
     .action(() => {
         create()
     })
+
+program.command('gm <module>')
+    .description('create a module')
+    .action((moduleName) => {
+        generateModule(moduleName)
+    })
+
 
 program.parse();
