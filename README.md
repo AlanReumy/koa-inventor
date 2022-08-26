@@ -31,6 +31,12 @@ npm install koa-inventor -g
 koa-inventor create
 ```
 
+- create a module
+
+```shell
+koa-inventor gm [moduleName]
+```
+
 - help
 
 ```shell

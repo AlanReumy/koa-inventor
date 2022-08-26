@@ -19,13 +19,19 @@ npm install koa-inventor -g
 
 ## 使用
 
-- create project
+- 创建项目
 
 ```shell
 koa-inventor create
 ```
 
-- help
+- 创建模块
+
+```shell
+koa-inventor gm [moduleName]
+```
+
+- 帮助
 
 ```shell
 koa-inventor -h
