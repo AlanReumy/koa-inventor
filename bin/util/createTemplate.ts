@@ -3,40 +3,38 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import ejs from 'ejs'
 import prettier from 'prettier'
-import { Config } from '../type/config.js'
+import { Config, TemplateConfig } from '../type/config.js'
 
+export function createTemplate(templateConfig: TemplateConfig) {
+  const { config, pathString, parser } = templateConfig
+  const __dirname = fileURLToPath(import.meta.url)
+  const template = fs.readFileSync(path.resolve(__dirname, pathString))
+  const code = ejs.render(template.toString(), config)
+  return prettier.format(code, { parser: parser })
+}
 
 export function createBootstrapTemplate(config: Config) {
-  const __dirname = fileURLToPath(import.meta.url)
-  const template = fs.readFileSync(path.resolve(__dirname, '../../../templates/index.ejs'))
-  const code = ejs.render(template.toString(), config)
-  return prettier.format(code, { parser: "babel" })
+  return createTemplate({ config, pathString: '../../../templates/index.ejs', parser: "babel" })
 }
 
 export function createPackageJsonTemplate(config: Config) {
-  const __dirname = fileURLToPath(import.meta.url)
-  const template = fs.readFileSync(path.resolve(__dirname, '../../../templates/package.ejs'))
-  const code = ejs.render(template.toString(), config)
-  return prettier.format(code, { parser: 'json' })
+  return createTemplate({ config, pathString: '../../../templates/package.ejs', parser: 'json' })
 }
 
 export function createRouterIndexTemplate(config: Config) {
-  const __dirname = fileURLToPath(import.meta.url)
-  const template = fs.readFileSync(path.resolve(__dirname, '../../../templates/routerIndex.ejs'))
-  const code = ejs.render(template.toString(), config)
-  return prettier.format(code, { parser: 'babel' })
+  return createTemplate({ config, pathString: '../../../templates/routerIndex.ejs', parser: 'babel' })
 }
 
 export function createHelloRouterTemplate(config: Config) {
-  const __dirname = fileURLToPath(import.meta.url)
-  const template = fs.readFileSync(path.resolve(__dirname, '../../../templates/hello.router.ejs'))
-  const code = ejs.render(template.toString(), config)
-  return prettier.format(code, { parser: 'babel' })
+  return createTemplate({ config, pathString: '../../../templates/hello.router.ejs', parser: 'babel' })
 }
 
 export function createServiceTemplate(moduleName: string) {
-  const __dirname = fileURLToPath(import.meta.url)
-  const template = fs.readFileSync(path.resolve(__dirname, '../../../templates/module/service.ejs'))
-  const code = ejs.render(template.toString(), {moduleName})
-  return prettier.format(code, { parser: 'babel' })
+  return createTemplate({ config: { moduleName }, pathString: '../../../templates/module/service.ejs', parser: 'babel' })
 }
+
+export function createControllerTemplate(moduleName: string) {
+  return createTemplate({ config: { moduleName }, pathString: '../../../templates/module/controller.ejs', parser: 'babel' })
+}
+
+

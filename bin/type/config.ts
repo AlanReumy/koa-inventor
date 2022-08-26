@@ -9,3 +9,9 @@ export type Config = {
 }
 
 export type MiddleWare = ReturnType<typeof middlewareConfig>['choices']
+
+export type TemplateConfig = {
+    config: Config | {moduleName:string},
+    pathString: string,
+    parser: string
+}
