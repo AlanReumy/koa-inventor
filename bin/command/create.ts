@@ -1,5 +1,6 @@
 import chalk from 'chalk'
 import fs from 'fs'
+import path from 'path'
 import { createConfig } from "../config/index.js"
 import { createEditorConfig, createMiddleWareFile } from '../util/createStaticFile.js'
 import { createBootstrapTemplate, createPackageJsonTemplate } from '../util/createTemplate.js'
@@ -10,7 +11,7 @@ export async function create() {
     const rootPath = `./${config.projectName}`
     config.rootPath = rootPath
 
-    // 1.创建文件夹
+    // create folder
     fs.mkdirSync(rootPath)
 
     createEditorConfig(config)
@@ -18,19 +19,30 @@ export async function create() {
 
     console.log(chalk.blue('create projectFolder successfully'));
 
-    // 2.创建入口文件
+    // create index.js
     fs.writeFileSync(`./${rootPath}/index.js`, createBootstrapTemplate(config))
     console.log(chalk.blue('create index.js successfully'));
 
-    // 3.创建package.json
+    // create other folder
+    createOtherFolder(rootPath)
+
+    // create package.json
     fs.writeFileSync(`./${rootPath}/package.json`, createPackageJsonTemplate(config))
     console.log(chalk.blue('create package.json successfully'));
 
-    // 4.安装依赖
+    // install dependencies
     console.log(chalk.blue('installing dependencies...'));
 
     await installDependencies(config)
 
     console.log(chalk.blue('install dependencies successful'));
     console.log(chalk.blue('happy coding~~'));
+}
+
+export function createOtherFolder(rootPath: string) {
+    fs.mkdirSync(path.resolve(rootPath, "service"))
+    fs.mkdirSync(path.resolve(rootPath, "controller"))
+    fs.mkdirSync(path.resolve(rootPath, "util"))
+    fs.mkdirSync(path.resolve(rootPath, "middleware"))
+    fs.mkdirSync(path.resolve(rootPath, "constant"))
 }
