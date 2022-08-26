@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import fs from 'fs'
 import path from 'path'
 import { createConfig } from "../config/index.js"
+import { Config } from '../type/config.js'
 import { createEditorConfig, createEsLint, createMiddleWareFile } from '../util/createStaticFile.js'
 import { createBootstrapTemplate, createPackageJsonTemplate } from '../util/createTemplate.js'
 import { installDependencies } from '../util/installDependencies.js'
@@ -14,7 +15,6 @@ export async function create() {
     // create folder
     fs.mkdirSync(rootPath)
 
-
     createEditorConfig(config)
     createEsLint(config)
     createMiddleWareFile(config)
@@ -26,7 +26,7 @@ export async function create() {
     console.log(chalk.blue('create index.js successfully'));
 
     // create other folder
-    createOtherFolder(rootPath)
+    createOtherFolder(config)
 
     // create package.json
     fs.writeFileSync(`./${rootPath}/package.json`, createPackageJsonTemplate(config))
@@ -41,10 +41,13 @@ export async function create() {
     console.log(chalk.blue('happy coding~~'));
 }
 
-export function createOtherFolder(rootPath: string) {
-    fs.mkdirSync(path.resolve(rootPath, "service"))
-    fs.mkdirSync(path.resolve(rootPath, "controller"))
-    fs.mkdirSync(path.resolve(rootPath, "util"))
-    fs.mkdirSync(path.resolve(rootPath, "middleware"))
-    fs.mkdirSync(path.resolve(rootPath, "constant"))
+export function createOtherFolder(config: Config) {
+    const { rootPath, middleware } = config
+    if (middleware.includes('koa-router')) {
+        fs.mkdirSync(path.resolve(rootPath, "service"))
+        fs.mkdirSync(path.resolve(rootPath, "controller"))
+        fs.mkdirSync(path.resolve(rootPath, "util"))
+        fs.mkdirSync(path.resolve(rootPath, "middleware"))
+        fs.mkdirSync(path.resolve(rootPath, "constant"))
+    }
 }
