@@ -38,5 +38,5 @@ export function createMiddleWareFile(config: Config) {
 
 export function createEsLint(config: Config) {
     const { rootPath } = config
-    fs.writeFileSync(`./${rootPath}/`, createEsLintTemplate())
+    fs.writeFileSync(`./${rootPath}/eslint.json`, createEsLintTemplate())
 }
