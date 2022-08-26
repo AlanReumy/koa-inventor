@@ -1,12 +1,12 @@
 {
   "name": "koa-inventor",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a cli for create koa project",
   "main": "index.js",
   "type": "module",
   "bin": "./dist/index.js",
-  "homepage": "https://github.com/b1t010/koa-inventor",
-  "repository": "github:b1t010/koa-inventor",
+  "homepage": "https://github.com/vikoala/koa-inventor",
+  "repository": "github:vikoala/koa-inventor",
   "scripts": {
     "start": "node dist/index.js",
     "build": "pnpm tsc"
@@ -20,7 +20,7 @@
     "cli",
     "koa"
   ],
-  "author": "b1t010",
+  "author": "vikoala",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.0.1",
