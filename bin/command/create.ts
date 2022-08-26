@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import fs from 'fs'
 import path from 'path'
 import { createConfig } from "../config/index.js"
-import { createEditorConfig, createMiddleWareFile } from '../util/createStaticFile.js'
+import { createEditorConfig, createEsLint, createMiddleWareFile } from '../util/createStaticFile.js'
 import { createBootstrapTemplate, createPackageJsonTemplate } from '../util/createTemplate.js'
 import { installDependencies } from '../util/installDependencies.js'
 
@@ -14,7 +14,9 @@ export async function create() {
     // create folder
     fs.mkdirSync(rootPath)
 
+
     createEditorConfig(config)
+    createEsLint(config)
     createMiddleWareFile(config)
 
     console.log(chalk.blue('create projectFolder successfully'));

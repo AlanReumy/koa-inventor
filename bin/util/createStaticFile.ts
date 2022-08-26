@@ -1,6 +1,6 @@
 import fs from 'fs'
 import { Config } from "../type/config.js"
-import { createHelloRouterTemplate, createRouterIndexTemplate } from './createTemplate.js'
+import { createEsLintTemplate, createHelloRouterTemplate, createRouterIndexTemplate } from './createTemplate.js'
 
 export function createEditorConfig(config: Config) {
     const editorconfig = `
@@ -34,4 +34,9 @@ export function createMiddleWareFile(config: Config) {
         fs.writeFileSync(`./${rootPath}/router/index.js`, createRouterIndexTemplate(config))
         fs.writeFileSync(`./${rootPath}/router/hello.router.js`, createHelloRouterTemplate(config))
     }
+}
+
+export function createEsLint(config: Config) {
+    const { rootPath } = config
+    fs.writeFileSync(`./${rootPath}/`, createEsLintTemplate())
 }

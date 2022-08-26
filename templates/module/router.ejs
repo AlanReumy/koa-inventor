@@ -1,0 +1,9 @@
+import Router from 'koa-router'
+import <%=(moduleName)%>Controller from '../controller/<%=(moduleName)%>.controller.js'
+
+const <%= (moduleName) %>Router = new Router({ prefix: '/<%=(moduleName)%>' })
+
+<%= (moduleName) %>Router.post('/', () => {})
+<%= (moduleName) %>Router.get('/', () => {})
+
+export default <%= (moduleName) %>Router

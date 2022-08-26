@@ -21,6 +21,10 @@ export function createPackageJsonTemplate(config: Config) {
   return createTemplate({ config, pathString: '../../../templates/package.ejs', parser: 'json' })
 }
 
+export function createEsLintTemplate() {
+  return createTemplate({ pathString: '../../../templates/util/eslint.ejs', parser: 'json' })
+}
+
 export function createRouterIndexTemplate(config: Config) {
   return createTemplate({ config, pathString: '../../../templates/routerIndex.ejs', parser: 'babel' })
 }
@@ -37,4 +41,6 @@ export function createControllerTemplate(moduleName: string) {
   return createTemplate({ config: { moduleName }, pathString: '../../../templates/module/controller.ejs', parser: 'babel' })
 }
 
-
+export function createRouterTemplate(moduleName: string) {
+  return createTemplate({ config: { moduleName }, pathString: '../../../templates/module/router.ejs', parser: 'babel' })
+}
