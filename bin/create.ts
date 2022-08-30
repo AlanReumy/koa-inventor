@@ -1,11 +1,11 @@
 import chalk from 'chalk'
 import fs from 'fs'
 import path from 'path'
-import { createConfig } from "../config/index.js"
-import { Config } from '../type/config.js'
-import { createEditorConfig, createEsLintConfig, createMiddleWareFile, createPrettierConfig } from '../util/createStaticFile.js'
-import { createBootstrapTemplate, createPackageJsonTemplate } from '../util/createTemplate.js'
-import { installDependencies } from '../util/installDependencies.js'
+import { createConfig } from "../src/config/index.js"
+import { Config } from '../src/type/config.js'
+import { createEditorConfig, createEsLintConfig, createMiddleWareFile, createPrettierConfig } from '../src/util/createStaticFile.js'
+import { createBootstrapTemplate, createPackageJsonTemplate } from '../src/util/createTemplate.js'
+import { installDependencies } from '../src/util/installDependencies.js'
 
 export async function create() {
     const config = await createConfig()

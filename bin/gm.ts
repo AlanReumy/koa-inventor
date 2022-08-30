@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { createControllerTemplate, createRouterTemplate, createServiceTemplate } from '../util/createTemplate.js'
+import { createControllerTemplate, createRouterTemplate, createServiceTemplate } from '../src/util/createTemplate.js'
 
 export function generateModule(moduleName: string) {
     // create service
