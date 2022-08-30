@@ -25,6 +25,10 @@ export function createEsLintTemplate() {
   return createTemplate({ pathString: '../../../templates/util/eslint.ejs', parser: 'json' })
 }
 
+export function createPrettierTemplate() {
+  return createTemplate({ pathString: '../../../templates/util/prettier.ejs', parser: 'json' })
+}
+
 export function createRouterIndexTemplate(config: Config) {
   return createTemplate({ config, pathString: '../../../templates/routerIndex.ejs', parser: 'babel' })
 }
