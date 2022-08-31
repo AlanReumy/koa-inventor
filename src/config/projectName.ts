@@ -1,11 +1,11 @@
 export function projectNameConfig() {
   return {
     type: "input",
-    name: 'projectName',
+    name: "projectName",
     validate(projectName: string) {
-      if (projectName)
-        return true
-      return 'please enter your project name!'
-    }
-  }
+      if (projectName) return true;
+      return "please enter your project name!";
+    },
+  };
 }
+
