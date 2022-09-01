@@ -1,0 +1,1 @@
+export type ProgramInfo= Record<'name' | 'version' | 'description', string>

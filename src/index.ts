@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-import { Command } from "commander";
 import { create } from "../bin/create.js";
 import { generateModule } from "../bin/gm.js";
+import { ProgramInfo } from "./type/program.js";
+import { createProgram, getPackageJson } from "./util/createProgram.js";
 
-const program = new Command();
-
-program.name("koa-inventor").description("a cli for koa").version("1.0.4");
+const programInfo: ProgramInfo = getPackageJson()
+const program = createProgram(programInfo)
 
 program
   .command("create")
