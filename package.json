@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": "./dist/src/index.js",
-  "homepage": "https://github.com/vikoala/koa-inventor",
+  "homepage": "https://github.com/vikoala/koa-inventor#readme",
   "repository": "github:vikoala/koa-inventor",
   "scripts": {
     "start": "node dist/src/index.js",
