@@ -1,5 +1,9 @@
 # koa-inventor
 
+![npm](https://img.shields.io/npm/dm/koa-inventor)
+![NPM](https://img.shields.io/npm/l/koa-inventor)
+![NPM](https://img.shields.io/npm/v/koa-inventor)
+
 > Interactive quick CLI tool for creating `Koa` projects 🚀🚀, quick develop without configuration
 
 ## document
