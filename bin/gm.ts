@@ -6,11 +6,7 @@ import {
 } from "../src/util/createTemplate.js";
 
 export function generateModule(moduleName: string) {
-  // create service
-  fs.writeFileSync(
-    `service/${moduleName}.service.js`,
-    createServiceTemplate(moduleName)
-  );
+  createService(moduleName)
   // create controller
   fs.writeFileSync(
     `controller/${moduleName}.controller.js`,
@@ -20,5 +16,15 @@ export function generateModule(moduleName: string) {
   fs.writeFileSync(
     `router/${moduleName}.router.js`,
     createRouterTemplate(moduleName)
+  );
+
+  
+}
+
+function createService(moduleName: string) {
+  // create service
+  fs.writeFileSync(
+    `service/${moduleName}.service.js`,
+    createServiceTemplate(moduleName)
   );
 }
