@@ -20,15 +20,11 @@ export async function create() {
   const rootPath = `./${config.projectName}`;
   config.rootPath = rootPath;
 
-  // create folder
-  fs.mkdirSync(rootPath);
-
+  createFolder(rootPath)
   createEditorConfig(config);
   createEsLintConfig(config);
   createPrettierConfig(config);
   createMiddleWareFile(config);
-
-  console.log(chalk.blue("create projectFolder successfully"));
 
   // create index.js
   fs.writeFileSync(`./${rootPath}/index.js`, createBootstrapTemplate(config));
@@ -51,6 +47,12 @@ export async function create() {
 
   console.log(chalk.blue("install dependencies successful"));
   console.log(chalk.blue("happy coding~~"));
+
+
+  function createFolder(rootPath: string) {
+    fs.mkdirSync(rootPath);
+    console.log(chalk.blue("create projectFolder successfully"));
+  }
 }
 
 export function createOtherFolder(config: Config) {
