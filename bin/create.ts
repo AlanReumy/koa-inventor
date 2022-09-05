@@ -20,42 +20,49 @@ export async function create() {
   const rootPath = `./${config.projectName}`;
   config.rootPath = rootPath;
 
-  createFolder(rootPath)
+  createRootFolder(config)
+
   createEditorConfig(config);
   createEsLintConfig(config);
   createPrettierConfig(config);
   createMiddleWareFile(config);
 
-  // create index.js
+  createIndexJs(config)
+  createOtherFolder(config);
+  createPackageJson(config)
+
+  await installDependenciesProcess(config)
+}
+
+function createRootFolder(config: Config) {
+  const { rootPath } = config
+  fs.mkdirSync(rootPath);
+  console.log(chalk.blue("create projectFolder successfully"));
+}
+
+function createIndexJs(config: Config) {
+  const { rootPath } = config
   fs.writeFileSync(`./${rootPath}/index.js`, createBootstrapTemplate(config));
   console.log(chalk.blue("create index.js successfully"));
+}
 
-  // create other folder
-  createOtherFolder(config);
-
-  // create package.json
+function createPackageJson(config: Config) {
+  const { rootPath } = config
   fs.writeFileSync(
     `./${rootPath}/package.json`,
     createPackageJsonTemplate(config)
   );
   console.log(chalk.blue("create package.json successfully"));
-
-  // install dependencies
-  console.log(chalk.blue("installing dependencies..."));
-
-  await installDependencies(config);
-
-  console.log(chalk.blue("install dependencies successful"));
-  console.log(chalk.blue("happy coding~~"));
-
-
-  function createFolder(rootPath: string) {
-    fs.mkdirSync(rootPath);
-    console.log(chalk.blue("create projectFolder successfully"));
-  }
 }
 
-export function createOtherFolder(config: Config) {
+async function installDependenciesProcess(config: Config) {
+  console.log(chalk.blue("installing dependencies..."));
+  await installDependencies(config);
+  console.log(chalk.blue("install dependencies successful"));
+  console.log(chalk.blue("happy coding~~"));
+}
+
+function createOtherFolder(config: Config) {
   const { rootPath, middleware } = config;
   if (middleware.includes("koa-router")) {
     fs.mkdirSync(path.resolve(rootPath, "service"));
