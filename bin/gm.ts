@@ -8,7 +8,10 @@ import {
 export function generateModule(moduleName: string) {
   createService(moduleName);
   createController(moduleName);
-  // create router
+  createRouter(moduleName);
+}
+
+function createRouter(moduleName: string) {
   fs.writeFileSync(
     `router/${moduleName}.router.js`,
     createRouterTemplate(moduleName)
@@ -23,7 +26,6 @@ function createController(moduleName: string) {
 }
 
 function createService(moduleName: string) {
-  // create service
   fs.writeFileSync(
     `service/${moduleName}.service.js`,
     createServiceTemplate(moduleName)
