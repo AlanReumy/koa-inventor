@@ -30,6 +30,7 @@ export async function create() {
   createIndexJs(config)
   createOtherFolder(config);
   createPackageJson(config)
+  createGitIgnoreFile(rootPath)
 
   await installDependenciesProcess(config)
 }
@@ -70,4 +71,24 @@ function createOtherFolder(config: Config) {
     fs.mkdirSync(path.resolve(rootPath, "middleware"));
     fs.mkdirSync(path.resolve(rootPath, "constant"));
   }
+}
+
+function createGitIgnoreFile(rootPath: string) {
+  fs.writeFileSync(`./${rootPath}/.gitignore`, `
+.idea
+!.gitignore
+!.gitkeep
+*/node_modules
+**/node_modules
+xx/xx/node_modules/node_modules/
+**/npm-debug.log
+npm-debug.log
+.DS_Store
+**/.DS_Store
+*/.DS_Store
+.vscode
+*.log
+**/*.log
+npmlist.json
+`)
 }
