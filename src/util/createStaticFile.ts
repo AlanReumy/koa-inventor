@@ -7,7 +7,7 @@ import {
   createPrettierTemplate,
 } from "./createTemplate.js";
 
-export function createEditorConfig(config: Config) {
+export function createEditorConfig(rootPath: string) {
   const editorconfig = `
 root = true
 [*]
@@ -24,7 +24,7 @@ trim_trailing_whitespace = false
 [Makefile]
 indent_style = tab
   `;
-  fs.writeFileSync(`./${config.rootPath}/.editorconfig`, editorconfig);
+  fs.writeFileSync(`./${rootPath}/.editorconfig`, editorconfig);
 }
 
 export function createMiddleWareFile(config: Config) {
@@ -47,13 +47,11 @@ export function createMiddleWareFile(config: Config) {
   }
 }
 
-export function createEsLintConfig(config: Config) {
-  const { rootPath } = config;
+export function createEsLintConfig(rootPath: string) {
   fs.writeFileSync(`./${rootPath}/.eslintrc.json`, createEsLintTemplate());
 }
 
-export function createPrettierConfig(config: Config) {
-  const { rootPath } = config;
+export function createPrettierConfig(rootPath: string) {
   fs.writeFileSync(`./${rootPath}/.prettierrc.json`, createPrettierTemplate());
 }
 

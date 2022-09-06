@@ -20,11 +20,11 @@ export async function create() {
   const rootPath = `./${config.projectName}`;
   config.rootPath = rootPath;
 
-  createRootFolder(config)
+  createRootFolder(rootPath)
 
-  createEditorConfig(config);
-  createEsLintConfig(config);
-  createPrettierConfig(config);
+  createEditorConfig(rootPath);
+  createEsLintConfig(rootPath);
+  createPrettierConfig(rootPath);
   createMiddleWareFile(config);
 
   createIndexJs(config)
@@ -34,8 +34,7 @@ export async function create() {
   await installDependenciesProcess(config)
 }
 
-function createRootFolder(config: Config) {
-  const { rootPath } = config
+function createRootFolder(rootPath: string) {
   fs.mkdirSync(rootPath);
   console.log(chalk.blue("create projectFolder successfully"));
 }
