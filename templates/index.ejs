@@ -8,12 +8,18 @@ import bodyParser from 'koa-bodyparser'
 <% if (middleware.includes('koa-router')) { %>
 import useRoutes from './router/index.js'
 <% } %>
+<% if (middleware.includes('@koa/cors')) { %>
+import cors from '@koa/cors'
+<% } %>
 const app = new Koa()
 <% if (middleware.includes('koa-static')) { %>
 app.use(serve('./static'));
 <% } %>
 <% if (middleware.includes('koa-bodyparser')) { %>
 app.use(bodyParser())
+<% } %>
+<% if (middleware.includes('@koa/cors')) { %>
+app.use(cors())
 <% } %>
 <% if (middleware.includes('koa-router')) { %>
 app.useRoutes = useRoutes

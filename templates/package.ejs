@@ -22,6 +22,9 @@
   <% if (middleware.includes('koa-bodyparser')) { %>
   ,"koa-bodyparser": "^4.3.0"
   <% } %>
+  <% if (middleware.includes('@koa/cors')) { %>
+  ,"@koa/cors": "^3.4.1"
+  <% } %>
   },
   "devDependencies":{
     "eslint": "^8.22.0",
