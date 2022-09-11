@@ -19,6 +19,7 @@
    - koa-static
    - koa-router
    - koa-bodyparser
+   - @koa/cors
 3. Support to select package management tools (npm, yarn, pnpm)
 
 ## Install

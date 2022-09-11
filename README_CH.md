@@ -9,6 +9,7 @@
    - koa-static
    - koa-router
    - koa-bodyparser
+   - @koa/cors
 3. 支持选择包管理工具（npm、yarn、pnpm）
 
 ## 安装
