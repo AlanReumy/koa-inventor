@@ -28,7 +28,14 @@
 npm install koa-inventor -g
 ```
 
+please ensure you can use `prettier` globally，if `prettier` is not installed on your computer globally, use this command: 
+
+```shell
+npm install prettier -g
+```
+
 ## Usage
+
 
 - create project
 

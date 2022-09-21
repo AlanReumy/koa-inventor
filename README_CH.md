@@ -18,6 +18,12 @@
 npm install koa-inventor -g
 ```
 
+请确保您可以全局使用 `prettier`，如果 `prettier` 没有全局安装在您的计算机上，使用以下命令:
+
+```shell
+npm install prettier -g
+```
+
 ## 使用
 
 - 创建项目
