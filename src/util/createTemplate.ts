@@ -10,7 +10,13 @@ export function createTemplate(templateConfig: TemplateConfig) {
   const __dirname = fileURLToPath(import.meta.url);
   const template = fs.readFileSync(path.resolve(__dirname, pathString));
   const code = ejs.render(template.toString(), config);
-  return prettier.format(code, { parser: parser });
+  let formatCode;
+  try {
+    formatCode = prettier.format(code, { parser: parser });
+  } catch (e) {
+    throw new Error("please install prettier globally");
+  }
+  return formatCode;
 }
 
 export function createBootstrapTemplate(config: Config) {
