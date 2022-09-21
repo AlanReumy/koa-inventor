@@ -36,7 +36,11 @@ export async function create() {
 }
 
 function createRootFolder(rootPath: string) {
-  fs.mkdirSync(rootPath);
+  try{
+    fs.mkdirSync(rootPath);
+  } catch(e) {
+    throw new Error("this directory existed!")
+  }
   console.log(chalk.blue("create projectFolder successfully"));
 }
 
