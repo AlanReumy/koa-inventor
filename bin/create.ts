@@ -20,38 +20,38 @@ export async function create() {
   const rootPath = `./${config.projectName}`;
   config.rootPath = rootPath;
 
-  createRootFolder(rootPath)
+  createRootFolder(rootPath);
 
   createEditorConfig(rootPath);
   createEsLintConfig(rootPath);
   createPrettierConfig(rootPath);
   createMiddleWareFile(config);
 
-  createIndexJs(config)
+  createIndexJs(config);
   createOtherFolder(config);
-  createPackageJson(config)
-  createGitIgnoreFile(rootPath)
+  createPackageJson(config);
+  createGitIgnoreFile(rootPath);
 
-  await installDependenciesProcess(config)
+  await installDependenciesProcess(config);
 }
 
 function createRootFolder(rootPath: string) {
-  try{
+  try {
     fs.mkdirSync(rootPath);
-  } catch(e) {
-    throw new Error("this directory existed!")
+  } catch (e) {
+    throw new Error("this directory existed!");
   }
   console.log(chalk.blue("create projectFolder successfully"));
 }
 
 function createIndexJs(config: Config) {
-  const { rootPath } = config
+  const { rootPath } = config;
   fs.writeFileSync(`./${rootPath}/index.js`, createBootstrapTemplate(config));
   console.log(chalk.blue("create index.js successfully"));
 }
 
 function createPackageJson(config: Config) {
-  const { rootPath } = config
+  const { rootPath } = config;
   fs.writeFileSync(
     `./${rootPath}/package.json`,
     createPackageJsonTemplate(config)
@@ -78,7 +78,9 @@ function createOtherFolder(config: Config) {
 }
 
 function createGitIgnoreFile(rootPath: string) {
-  fs.writeFileSync(`./${rootPath}/.gitignore`, `
+  fs.writeFileSync(
+    `./${rootPath}/.gitignore`,
+    `
 .idea
 !.gitignore
 !.gitkeep
@@ -94,5 +96,7 @@ npm-debug.log
 *.log
 **/*.log
 npmlist.json
-`)
+`
+  );
 }
+
