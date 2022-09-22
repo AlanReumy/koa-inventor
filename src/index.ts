@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { create } from "../bin/create.js";
 import { generateModule } from "../bin/gm.js";
 import { ProgramCommand, ProgramInfo } from "./type/program.js";
