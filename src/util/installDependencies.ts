@@ -6,8 +6,7 @@ export async function installDependencies(config: Config) {
   const installStatement = packageManager.includes("npm")
     ? `${packageManager} install`
     : "yarn";
-  await execa(installStatement, {
+  await execa(installStatement, undefined, {
     cwd: rootPath,
   });
 }
-
