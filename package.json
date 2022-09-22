@@ -1,6 +1,6 @@
 {
   "name": "koa-inventor",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "a cli for create koa project",
   "main": "index.js",
   "type": "module",
