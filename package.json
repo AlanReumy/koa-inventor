@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "rollup --config rollup.config.ts",
-    "test": "pnpm run build && npm link"
+    "test": "npm run build && npm link"
   },
   "files": [
     "dist",
