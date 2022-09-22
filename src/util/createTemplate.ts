@@ -22,7 +22,7 @@ export function createTemplate(templateConfig: TemplateConfig) {
 export function createBootstrapTemplate(config: Config) {
   return createTemplate({
     config,
-    pathString: "../../../../templates/index.ejs",
+    pathString: "../../templates/index.ejs",
     parser: "babel",
   });
 }
@@ -30,21 +30,21 @@ export function createBootstrapTemplate(config: Config) {
 export function createPackageJsonTemplate(config: Config) {
   return createTemplate({
     config,
-    pathString: "../../../../templates/package.ejs",
+    pathString: "../../templates/package.ejs",
     parser: "json",
   });
 }
 
 export function createEsLintTemplate() {
   return createTemplate({
-    pathString: "../../../../templates/util/eslint.ejs",
+    pathString: "../../templates/util/eslint.ejs",
     parser: "json",
   });
 }
 
 export function createPrettierTemplate() {
   return createTemplate({
-    pathString: "../../../../templates/util/prettier.ejs",
+    pathString: "../../templates/util/prettier.ejs",
     parser: "json",
   });
 }
@@ -52,7 +52,7 @@ export function createPrettierTemplate() {
 export function createRouterIndexTemplate(config: Config) {
   return createTemplate({
     config,
-    pathString: "../../../../templates/routerIndex.ejs",
+    pathString: "../../templates/routerIndex.ejs",
     parser: "babel",
   });
 }
@@ -60,7 +60,7 @@ export function createRouterIndexTemplate(config: Config) {
 export function createHelloRouterTemplate(config: Config) {
   return createTemplate({
     config,
-    pathString: "../../../../templates/hello.router.ejs",
+    pathString: "../../templates/hello.router.ejs",
     parser: "babel",
   });
 }
@@ -68,7 +68,7 @@ export function createHelloRouterTemplate(config: Config) {
 export function createServiceTemplate(moduleName: string) {
   return createTemplate({
     config: { moduleName },
-    pathString: "../../../../templates/module/service.ejs",
+    pathString: "../../templates/module/service.ejs",
     parser: "babel",
   });
 }
@@ -76,7 +76,7 @@ export function createServiceTemplate(moduleName: string) {
 export function createControllerTemplate(moduleName: string) {
   return createTemplate({
     config: { moduleName },
-    pathString: "../../../../templates/module/controller.ejs",
+    pathString: "../../templates/module/controller.ejs",
     parser: "babel",
   });
 }
@@ -84,7 +84,7 @@ export function createControllerTemplate(moduleName: string) {
 export function createRouterTemplate(moduleName: string) {
   return createTemplate({
     config: { moduleName },
-    pathString: "../../../../templates/module/router.ejs",
+    pathString: "../../templates/module/router.ejs",
     parser: "babel",
   });
 }
