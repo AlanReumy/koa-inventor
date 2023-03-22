@@ -14,7 +14,7 @@ const commands: ProgramCommand[] = [
   {
     command: 'gm <module>',
     description: 'create a module',
-    action: (moduleName) => {
+    action: (moduleName: string) => {
       generateModule(moduleName);
     }
   },

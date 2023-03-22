@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@rollup/plugin-typescript': ^8.5.0
+  '@types/commander': ^2.12.2
   '@types/ejs': ^3.1.1
   '@types/inquirer': ^9.0.1
   '@types/minimist': ^1.2.2
@@ -31,6 +32,7 @@ dependencies:
 
 devDependencies:
   '@rollup/plugin-typescript': 8.5.0_5j6xs4al5kvj74qioxrurhiohm
+  '@types/commander': 2.12.2
   '@types/ejs': 3.1.1
   '@types/inquirer': 9.0.1
   '@types/minimist': 1.2.2
@@ -130,6 +132,13 @@ packages:
       estree-walker: 1.0.1
       picomatch: 2.3.1
       rollup: 2.79.1
+    dev: true
+
+  /@types/commander/2.12.2:
+    resolution: {integrity: sha512-0QEFiR8ljcHp9bAbWxecjVRuAMr16ivPiGOw6KFQBVrVd0RQIcM3xKdRisH2EDWgVWujiYtHwhSkSUoAAGzH7Q==}
+    deprecated: This is a stub types definition for commander (https://github.com/tj/commander.js). commander provides its own type definitions, so you don't need @types/commander installed!
+    dependencies:
+      commander: 9.4.0
     dev: true
 
   /@types/ejs/3.1.1:
@@ -455,7 +464,6 @@ packages:
   /commander/9.4.0:
     resolution: {integrity: sha512-sRPT+umqkz90UA8M1yqYfnHlZA7fF6nSphDtxeywPZ49ysjxDQybzk13CL+mXekDRG92skbcqCLVovuCusNmFw==}
     engines: {node: ^12.20.0 || >=14}
-    dev: false
 
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}

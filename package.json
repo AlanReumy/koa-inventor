@@ -25,7 +25,7 @@
     "tool",
     "command line"
   ],
-  "author": "vikoala",
+  "author": "danyuan30",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.5.0",
+    "@types/commander": "^2.12.2",
     "@types/ejs": "^3.1.1",
     "@types/inquirer": "^9.0.1",
     "@types/minimist": "^1.2.2",
